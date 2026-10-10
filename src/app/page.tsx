@@ -1,7 +1,9 @@
-import { Navbar } from "@/components/layout/navbar";
-import { Hero } from "@/components/sections/hero";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { Navbar } from "@/components/layout/navbar";
+import { Hero } from "@/components/sections/hero";
+import { About } from "@/components/sections/about";
+import { Projects } from "@/components/sections/projects";
 
 export default function Home() {
   return (
@@ -10,69 +12,39 @@ export default function Home() {
 
       <main>
         <Hero />
-
-        <section
-          id="about"
-          className="scroll-mt-20 border-t border-border px-5 py-24 sm:px-8"
-        >
-          <div className="mx-auto max-w-7xl">
-            <p className="font-mono text-sm text-accent">01 / ABOUT</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              A little about me.
-            </h2>
-            <p className="mt-5 max-w-2xl leading-8 text-muted">
-              I enjoy turning ideas into practical web applications, learning
-              new technologies, and creating experiences that balance thoughtful
-              design with solid engineering.
-            </p>
-          </div>
-        </section>
-
-        <section
-          id="projects"
-          className="scroll-mt-20 border-t border-border bg-muted-surface/30 px-5 py-24 sm:px-8"
-        >
-          <div className="mx-auto max-w-7xl">
-            <p className="font-mono text-sm text-accent">02 / SELECTED WORK</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Projects I&apos;ve built.
-            </h2>
-            <p className="mt-5 max-w-2xl leading-8 text-muted">
-              A collection of applications, experiments, and ideas brought to
-              life through code.
-            </p>
-
-            <article className="mt-10 max-w-xl rounded-2xl border border-border bg-surface p-6 sm:p-8">
-              <p className="font-mono text-xs text-accent">FEATURED PROJECT</p>
-              <h3 className="mt-3 text-xl font-semibold">
-                Fullstack Ecommerce Template
-              </h3>
-              <p className="mt-3 leading-7 text-muted">
-                A full-stack e-commerce template built as a reusable starting
-                point for online storefronts.
-              </p>
-              <p className="mt-5 text-sm text-muted">
-                More project details and screenshots coming soon.
-              </p>
-            </article>
-          </div>
-        </section>
+        <About />
+        <Projects />
 
         <section
           id="contact"
-          className="scroll-mt-20 border-t border-border px-5 py-24 sm:px-8"
+          className="scroll-mt-20 border-t border-border px-5 py-24 sm:px-8 lg:py-28"
         >
           <div className="mx-auto max-w-7xl">
-            <p className="font-mono text-sm text-accent">03 / CONTACT</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Have an idea in mind?
-            </h2>
-            <p className="mt-5 max-w-2xl leading-8 text-muted">
-              I&apos;m interested in connecting with people who are building
-              useful products and solving interesting problems.
-            </p>
-            <p className="mt-6 text-sm text-muted">
-              We&apos;ll add your preferred contact details here.
+            <p className="font-mono text-sm text-accent">03 / GET IN TOUCH</p>
+
+            <div className="mt-5 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+              <div>
+                <h2 className="max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
+                  Let&apos;s build something
+                  <span className="text-accent"> meaningful.</span>
+                </h2>
+
+                <p className="mt-5 max-w-xl leading-8 text-muted">
+                  Have a project in mind or want to discuss an opportunity?
+                  I&apos;d be happy to connect.
+                </p>
+              </div>
+
+              <Link
+                href="#home"
+                className="inline-flex w-fit items-center gap-2 rounded-xl border border-border bg-surface px-5 py-3.5 text-sm font-semibold transition-colors hover:border-accent/50 hover:bg-muted-surface"
+              >
+                Back to top <ArrowUpRight size={17} />
+              </Link>
+            </div>
+
+            <p className="mt-10 text-sm text-muted">
+              Contact details coming soon.
             </p>
           </div>
         </section>
@@ -81,11 +53,8 @@ export default function Home() {
       <footer className="border-t border-border px-5 py-6 sm:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 text-sm text-muted">
           <p>© 2026 Youssef Elhawary</p>
-          <Link
-            href="#home"
-            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
-          >
-            Back to top <ArrowUpRight size={15} />
+          <Link href="#home" className="transition-colors hover:text-accent">
+            Back to top ↑
           </Link>
         </div>
       </footer>
