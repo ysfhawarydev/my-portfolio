@@ -3,20 +3,21 @@ import { Code2, Layers3, Sparkles } from "lucide-react";
 const strengths = [
   {
     icon: Code2,
-    title: "Full-stack development",
-    description: "Building web experiences across the frontend and backend.",
+    title: "Full-Stack Development",
+    description:
+      "Building complete web applications with modern frontend and backend technologies.",
   },
   {
     icon: Layers3,
-    title: "Reusable architecture",
+    title: "Scalable Architecture",
     description:
-      "Organizing components and code for maintainability and growth.",
+      "Creating reusable components and organizing application logic for maintainability.",
   },
   {
     icon: Sparkles,
-    title: "UI & user experience",
+    title: "Product-Focused UI",
     description:
-      "Creating responsive interfaces with attention to the details.",
+      "Crafting responsive, intuitive interfaces that balance visual quality with practical functionality.",
   },
 ];
 
@@ -38,19 +39,22 @@ export function About() {
             </h2>
 
             <p className="mt-6 max-w-lg leading-8 text-muted">
-              I&apos;m Youssef Elhawary, a Full-Stack Developer interested in
-              building modern web applications that bring thoughtful design and
-              practical functionality together.
+              I&apos;m Youssef Elhawary, a Full-Stack Developer who builds
+              modern web applications using technologies like Next.js,
+              TypeScript, React, NestJS, and PostgreSQL.
             </p>
 
             <p className="mt-4 max-w-lg leading-8 text-muted">
-              I enjoy breaking down complex ideas, building reusable solutions,
-              and continuously improving how I write and structure code.
+              enjoy turning ideas into complete products — from crafting
+              responsive user interfaces to developing backend APIs and working
+              with databases. I care about clean code, maintainable
+              architecture, and creating experiences that are both useful and
+              intuitive.
             </p>
 
             <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm text-muted">
               <span className="size-2 rounded-full bg-accent" />
-              Focused on building and improving
+              Always building. Always learning.
             </div>
           </div>
 

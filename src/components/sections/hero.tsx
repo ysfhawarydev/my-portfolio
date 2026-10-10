@@ -8,7 +8,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const technologies = ["Next.js", "TypeScript", "React", "Tailwind CSS"];
+const technologies = ["Next.js", "TypeScript", "React", "Tailwind CSS", "Node.js", "Nest.js", "PostgreSQL"];
 
 export function Hero() {
   return (
@@ -45,9 +45,7 @@ export function Hero() {
           </h2>
 
           <p className="mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg">
-            I build modern, responsive web applications with thoughtful
-            interfaces and reliable functionality — from the first component to
-            the full-stack experience.
+            I build full-stack web applications that combine clean, responsive interfaces with reliable backend systems. I enjoy turning ideas into practical digital products using modern web technologies.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -137,9 +135,9 @@ export function Hero() {
                   <span className="text-accent">focus</span>: [
                 </p>
                 <div className="pl-5 text-muted">
-                  <p>&quot;Clean code&quot;,</p>
-                  <p>&quot;Great UX&quot;,</p>
-                  <p>&quot;Useful products&quot;,</p>
+                  <p>&quot;Thoughtful UI&quot;,</p>
+                  <p>&quot;Reliable systems&quot;,</p>
+                  <p>&quot;Continuous learning&quot;,</p>
                 </div>
                 <p>],</p>
               </div>
