@@ -32,4 +32,12 @@ Non-blocking Lighthouse opportunities remain around framework JavaScript, legacy
 
 The deployed preview passed Playwright and axe across all 36 route and viewport combinations. The first hosted mobile Lighthouse run scored 99 performance, 100 accessibility, 100 best practices, and 100 SEO. LCP was 0.933 s, TBT was 118 ms, and CLS was 0.005. See [the initial Pages verification](https://github.com/ysfhawarydev/my-portfolio/actions/runs/44390728488).
 
-For production and subsequent preview measurements, see [the hosted quality workflow](https://github.com/ysfhawarydev/my-portfolio/actions/workflows/hosted-quality.yml). Scores vary between GitHub-hosted runners, mainly in JavaScript blocking time. Production results are lab measurements. Field LCP, INP and CLS require real-user traffic data.
+The [final hosted verification](https://github.com/ysfhawarydev/my-portfolio/actions/runs/44393118121) passed all 36 production and 36 preview browser checks with zero axe violations. The production checks also passed each HTTP and www redirect, including query preservation.
+
+| Production run | Performance | Accessibility | Best practices | SEO | LCP     | TBT    | CLS   |
+| -------------- | ----------- | ------------- | -------------- | --- | ------- | ------ | ----- |
+| 1              | 99          | 100           | 100            | 100 | 0.995 s | 139 ms | 0     |
+| 2              | 100         | 100           | 100            | 100 | 0.931 s | 57 ms  | 0     |
+| 3              | 100         | 100           | 100            | 100 | 0.938 s | 56 ms  | 0.005 |
+
+These production runs used Lighthouse 13.6.0, Chrome 157 on GitHub Actions, simulated mobile 4× CPU slowdown, 150 ms RTT, and 1.64 Mbps. Earlier hosted runs varied from 80 to 99 performance, primarily in JavaScript blocking time across different CI runners. The final results meet the lab target. Field LCP, INP and CLS require real-user traffic data.

@@ -34,14 +34,15 @@ Visual review covered all nine page headers at mobile and desktop sizes, plus fu
 - Cloudflare Pages deploys directly from GitHub. The old source remains on `archive/pre-editorial-2026-11-17` at `8c288d1f9763530d214c0eaaf3199fe13e66ae9c`. The old Vercel deployment was retained. The replacement uses Cloudflare Pages because this portfolio advertises freelance services and Vercel Hobby is intended for personal or non-commercial use.
 - Both custom hostnames returned valid HTTPS in the browser. The apex serves the new release. Cloudflare's 301 rule redirects www to the apex with path and query intact. The DNS export and post-cutover check confirmed all ten unrelated records kept their target values. No mail records existed in the zone as of cutover.
 - The Notes app opens over HTTPS. Its data was still loading during verification, as before the migration.
-- Search Console verified the domain via a TXT record. It accepted the sitemap, discovered nine URLs, and showed the home page as indexed. Search ranking and recrawl timing are controlled by Google.
+- Search Console verified the domain via a TXT record. It accepted the sitemap, discovered nine URLs, and showed the home page as indexed. Google accepted an indexing request for the Student Management System case study. Search ranking and recrawl timing are controlled by Google.
 
 | Platform             | Result                                                                                                                  |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | GitHub profile       | Added and verified the canonical website link.                                                                          |
+| GitHub repository    | Replaced the old Vercel URL with the canonical site and added a source description.                                     |
 | LinkedIn             | Contact info already points to the live canonical URL.                                                                  |
 | Fiverr               | Seller profile review blocked by a human verification screen.                                                           |
-| Hubstaff Talent      | The public freelancer URL returned 404.                                                                                 |
+| Hubstaff Talent      | The owner’s freelancer profile already links to the live canonical URL.                                                 |
 | Resume and old links | Existing original PDF is available on the new site. The main domain is the same, and `/projects` redirects to `/work/`. |
 
 The Cloudflare agent setup remains incomplete. npm could not resolve its package registry, and the global Codex configuration directory was read-only. The website deploys through the authenticated dashboard and GitHub integration.
