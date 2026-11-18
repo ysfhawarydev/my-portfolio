@@ -37,7 +37,7 @@ Backup: `archive/pre-editorial-2026-11-17`. Working branch: `feat/editorial-port
 
 Existing Vercel project: `my-portfolio` (`prj_hXanjx8zaKGVD7AZkoXnjfHwS8Vs`). Existing production deployment: `dpl_AiXw9Nw9jEqr1hHsGFQo9zZqD38s`. The account is Hobby. Vercel's Hobby terms restrict it to personal/non-commercial use. This portfolio advertises freelance services, so launch is held for eligible hosting. No purchase or upgrade authorized. Automatic Git deployments are explicitly disabled in this branch's vercel.json until eligibility is resolved.
 
-Static output can also be hosted on Cloudflare Pages. That provider change requires the owner's decision; no Cloudflare deployment has been created.
+The owner authorized Cloudflare Pages free-tier hosting on 18 November 2026. Host headers and redirects are prepared; see CLOUDFLARE.md. Cloudflare authentication remains required; no deployment has been created.
 
 The current Cloudflare browser session reaches the sign-in page. Authenticated zone access is still required. The existing production homepage was reopened successfully over HTTPS on 18 November. The Notes HTTPS application shell also loads, but remained at “Loading notes…” during this check; its data/backend functionality was not verified. No DNS or Notes application changes were made.
 
@@ -65,7 +65,7 @@ The canonical portfolio URL is unchanged. Update descriptions or removed routes 
 
 ## Remaining release gates
 
-1. Choose eligible Vercel hosting or authorize Cloudflare Pages, then create and test a preview.
+1. Sign in to Cloudflare, then create and test the authorized Pages deployment.
 2. Run mobile Lighthouse on the real preview and production; record real scores and conditions. Field INP/LCP/CLS require actual traffic data and cannot be claimed from a build.
 3. Authenticate Cloudflare, export the complete zone, and validate contact, assets, external links, resume, redirects, HTTPS and preserved subdomains after launch.
 4. Complete authorized profile migration after launch. GitHub's visible profile currently shows no portfolio link; its profile README was not found. Other platform editing access has not been verified.

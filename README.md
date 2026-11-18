@@ -31,7 +31,7 @@ Static export avoids a server and makes deployment portable. Image derivatives a
 
 ## Deployment
 
-Build command: `npm run build`. Output directory: `out`. All substantive pages are prerendered. Vercel configuration is included, but the existing account's Hobby plan is a blocker for this commercial-services portfolio. Do not promote or purchase an upgrade without resolving hosting eligibility. A static Cloudflare Pages deployment is an alternative to evaluate with the owner.
+Build command: `npm run build`. Output directory: `out`. All substantive pages are prerendered. Vercel configuration is included, but the existing account's Hobby plan is a blocker for this commercial-services portfolio. Do not promote or purchase an upgrade without resolving hosting eligibility. The owner has authorized Cloudflare Pages free-tier hosting. Host configuration is in public/_headers and public/_redirects; see [Cloudflare release instructions](docs/CLOUDFLARE.md). Authentication and production verification remain pending.
 
 The original site is preserved on `archive/pre-editorial-2026-11-17`. Work is on `feat/editorial-portfolio`. Keep main and existing production deployment unchanged until browser QA, performance checks, and hosting eligibility are resolved.
 
