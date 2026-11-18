@@ -5,6 +5,7 @@ The portfolio launched on Cloudflare Pages on 18 November 2026. The free Pages p
 ## Build configuration
 
 - Repository: `ysfhawarydev/my-portfolio`
+- Production branch: `main`, with automatic deployments enabled
 - Release branch at cutover: `feat/editorial-portfolio`
 - Root directory: repository root
 - Build command: `npm run build`
