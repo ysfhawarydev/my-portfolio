@@ -32,11 +32,11 @@ jobs:
       - name: Check primary domain redirects
         if: matrix.environment == 'production'
         run: |
-          for url in 'http://ysfhawary.dev/work/' 'https://www.ysfhawary.dev/work/' 'http://www.ysfhawary.dev/work/'; do
+          for url in 'http://ysfhawary.dev/work/' 'https://www.ysfhawary.dev/work/?source=redirect-test' 'http://www.ysfhawary.dev/work/'; do
             result=$(curl -fsSL --max-time 25 --max-redirs 4 -o /dev/null -w '%{url_effective} %{http_code} %{num_redirects}' "$url")
             printf '%s → %s\n' "$url" "$result"
             case "$result" in
-              'https://ysfhawary.dev/work/ 200 '[1-4]) ;;
+              'https://ysfhawary.dev/work/ 200 '[1-4]|'https://ysfhawary.dev/work/?source=redirect-test 200 '[1-4]) ;;
               *) exit 1 ;;
             esac
           done
