@@ -55,7 +55,7 @@ export default function About() {
             learn from other engineers, and take responsibility for work from
             implementation through verification.
           </p>
-          <Link className="text-link" href="/work/">
+          <Link prefetch={false} className="text-link" href="/work/">
             See how that translates into code <Arrow />
           </Link>
         </div>

@@ -86,7 +86,8 @@ try {
             .getByRole('navigation', { name: 'Mobile navigation' })
             .getByRole('link', { name: 'Work', exact: false })
             .click();
-          assert.ok(page.url().includes('/work/'));
+          await page.waitForURL(/\/work\/?$/);
+          assert.ok(await page.getByRole('heading', { level: 1 }).isVisible());
         }
       }
       results.push({

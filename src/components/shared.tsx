@@ -56,7 +56,7 @@ export function ContactFinale() {
 export function Footer() {
   return (
     <footer className="shell footer">
-      <Link href="/" className="footer-name">
+      <Link prefetch={false} href="/" className="footer-name">
         Youssef Elhawary<span>FULL-STACK SOFTWARE ENGINEER</span>
       </Link>
       <div className="footer-links">
@@ -66,7 +66,7 @@ export function Footer() {
         <a href={profile.linkedin}>
           LinkedIn <Arrow />
         </a>
-        <Link href="/resume/">
+        <Link prefetch={false} href="/resume/">
           Resume <Arrow />
         </Link>
       </div>
@@ -103,13 +103,15 @@ export function SelectedWork({ index = false }: { index?: boolean }) {
             key={project.slug}
           >
             <Link
+              prefetch={false}
               href={`/work/${project.slug}/`}
               className="project-image-link"
-              aria-label={`Read ${project.name} case study`}
             >
-              <ProjectVisual project={project} />
+              <div aria-hidden="true">
+                <ProjectVisual project={project} />
+              </div>
               <span className="image-cta">
-                Explore project <Arrow />
+                Explore {project.name} <Arrow />
               </span>
             </Link>
             <div className="project-description">
@@ -117,7 +119,9 @@ export function SelectedWork({ index = false }: { index?: boolean }) {
               <div>
                 <p className="eyebrow">{project.category}</p>
                 <h3>
-                  <Link href={`/work/${project.slug}/`}>{project.name}</Link>
+                  <Link prefetch={false} href={`/work/${project.slug}/`}>
+                    {project.name}
+                  </Link>
                 </h3>
                 <p>{project.summary}</p>
                 <div className="project-tags">
@@ -127,6 +131,7 @@ export function SelectedWork({ index = false }: { index?: boolean }) {
                 </div>
               </div>
               <Link
+                prefetch={false}
                 className="circle-link"
                 href={`/work/${project.slug}/`}
                 aria-label={`Read about ${project.name}`}
@@ -138,7 +143,7 @@ export function SelectedWork({ index = false }: { index?: boolean }) {
         ))}
       </div>
       {!index && (
-        <Link className="text-link" href="/work/">
+        <Link prefetch={false} className="text-link" href="/work/">
           View the work index <Arrow />
         </Link>
       )}
@@ -154,7 +159,11 @@ export function ExpertiseList() {
           <div>
             <h3>{item.short}</h3>
             <p>{item.body}</p>
-            <Link className="evidence-link" href={`/work/${item.slug}/`}>
+            <Link
+              prefetch={false}
+              className="evidence-link"
+              href={`/work/${item.slug}/`}
+            >
               {item.evidence} <Arrow />
             </Link>
           </div>
@@ -174,7 +183,11 @@ export function Experience() {
           <h2>{experience.company}</h2>
           <p className="role">{experience.role}</p>
           <p>{experience.description}</p>
-          <Link className="text-link" href="/work/student-management-system/">
+          <Link
+            prefetch={false}
+            className="text-link"
+            href="/work/student-management-system/"
+          >
             Explore the internship project <Arrow />
           </Link>
         </div>

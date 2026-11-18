@@ -17,7 +17,12 @@ export function Navigation() {
   return (
     <header className="site-header">
       <div className="shell nav-inner">
-        <Link className="wordmark" href="/" aria-label="Youssef Elhawary home">
+        <Link
+          prefetch={false}
+          className="wordmark"
+          href="/"
+          aria-label="Youssef Elhawary home"
+        >
           <span className="monogram" aria-hidden="true">
             y<span>e</span>
             <i />
@@ -31,6 +36,7 @@ export function Navigation() {
         <nav className="desktop-nav" aria-label="Main navigation">
           {links.map(([label, href]) => (
             <Link
+              prefetch={false}
               key={href}
               href={href}
               aria-current={
@@ -41,7 +47,7 @@ export function Navigation() {
             </Link>
           ))}
         </nav>
-        <Link href="/resume/" className="resume-link">
+        <Link prefetch={false} href="/resume/" className="resume-link">
           Resume <span aria-hidden="true">↗</span>
         </Link>
         <details
@@ -60,6 +66,7 @@ export function Navigation() {
           <nav aria-label="Mobile navigation">
             {links.map(([label, href]) => (
               <Link
+                prefetch={false}
                 key={href}
                 href={href}
                 onClick={close}
@@ -71,7 +78,7 @@ export function Navigation() {
                 <span aria-hidden="true">↗</span>
               </Link>
             ))}
-            <Link href="/resume/" onClick={close}>
+            <Link prefetch={false} href="/resume/" onClick={close}>
               Resume <span aria-hidden="true">↗</span>
             </Link>
           </nav>

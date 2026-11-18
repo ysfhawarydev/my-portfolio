@@ -12,10 +12,10 @@ export default function NotFound() {
         The address may have changed. You can explore the work or head back to
         the homepage.
       </p>
-      <Link className="button button-light" href="/">
+      <Link prefetch={false} className="button button-light" href="/">
         Back to home <span aria-hidden="true">↗</span>
       </Link>
-      <Link className="text-link" href="/work/">
+      <Link prefetch={false} className="text-link" href="/work/">
         Explore the work
       </Link>
     </section>

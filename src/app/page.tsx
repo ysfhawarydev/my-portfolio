@@ -54,10 +54,14 @@ export default function Home() {
             care for how every part works together.
           </p>
           <div className="hero-actions">
-            <Link className="button button-light" href="#projects">
+            <Link
+              prefetch={false}
+              className="button button-light"
+              href="#projects"
+            >
               Selected work <span aria-hidden="true">↓</span>
             </Link>
-            <Link className="text-link" href="/contact/">
+            <Link prefetch={false} className="text-link" href="/contact/">
               Get in touch <Arrow />
             </Link>
           </div>
@@ -87,7 +91,7 @@ export default function Home() {
                 the finished screen.
               </p>
             </div>
-            <Link href="/about/" className="text-link">
+            <Link prefetch={false} href="/about/" className="text-link">
               A little more about me <Arrow />
             </Link>
           </div>
@@ -101,7 +105,7 @@ export default function Home() {
             <br />
             <em>to final query.</em>
           </h2>
-          <Link href="/expertise/" className="text-link">
+          <Link prefetch={false} href="/expertise/" className="text-link">
             Engineering capabilities <Arrow />
           </Link>
         </div>

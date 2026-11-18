@@ -1,6 +1,7 @@
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
+import { gzipSync } from 'node:zlib';
 const root = resolve('out');
 const types = {
   '.html': 'text/html',
@@ -25,9 +26,20 @@ createServer(async (req, res) => {
     if (path !== root && !path.startsWith(root + sep))
       throw new Error('Invalid path');
     if ((await stat(path)).isDirectory()) path = resolve(path, 'index.html');
-    const body = await readFile(path);
+    let body = await readFile(path);
+    const compress =
+      /gzip/.test(req.headers['accept-encoding'] || '') &&
+      ['.html', '.js', '.css', '.json', '.txt', '.xml', '.svg'].includes(
+        extname(path),
+      );
+    if (compress) body = gzipSync(body);
     res.writeHead(200, {
       'Content-Type': types[extname(path)] || 'application/octet-stream',
+      ...(compress ? { 'Content-Encoding': 'gzip' } : {}),
+      Vary: 'Accept-Encoding',
+      'Cache-Control': pathname.startsWith('/_next/static/')
+        ? 'public, max-age=31536000, immutable'
+        : 'public, max-age=0, must-revalidate',
     });
     res.end(body);
   } catch {

@@ -31,7 +31,7 @@ export default async function ProjectPage({
   return (
     <article className={`case-study case-${p.visual}`}>
       <header className="shell case-heading">
-        <Link className="text-link back-link" href="/work/">
+        <Link prefetch={false} className="text-link back-link" href="/work/">
           <span aria-hidden="true">←</span> All work
         </Link>
         <p className="eyebrow">
@@ -144,7 +144,7 @@ export default async function ProjectPage({
       </div>
       <div className="shell next-project">
         <p className="eyebrow">NEXT PROJECT / {next.number}</p>
-        <Link href={`/work/${next.slug}/`}>
+        <Link prefetch={false} href={`/work/${next.slug}/`}>
           {next.name}
           <Arrow />
         </Link>
