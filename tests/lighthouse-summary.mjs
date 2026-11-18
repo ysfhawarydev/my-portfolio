@@ -31,6 +31,9 @@ console.log(
           title: a.title,
           score: a.score,
           displayValue: a.displayValue,
+          ...(a.id === 'label-content-name-mismatch'
+            ? { details: a.details }
+            : {}),
         })),
     }),
 );

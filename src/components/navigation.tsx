@@ -17,19 +17,13 @@ export function Navigation() {
   return (
     <header className="site-header">
       <div className="shell nav-inner">
-        <Link
-          prefetch={false}
-          className="wordmark"
-          href="/"
-          aria-label="Youssef Elhawary home"
-        >
+        <Link prefetch={false} className="wordmark" href="/">
           <span className="monogram" aria-hidden="true">
             y<span>e</span>
             <i />
           </span>
           <span>
-            YOUSSEF
-            <br />
+            YOUSSEF <br />
             ELHAWARY
           </span>
         </Link>
