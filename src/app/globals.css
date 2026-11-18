@@ -424,7 +424,7 @@ a:hover > .arrow {
 .visual-bottomline {
   border-top: 1px solid currentColor;
   padding-top: 18px;
-  opacity: 0.65;
+  opacity: 0.85;
 }
 .lms-visual {
   background: #dce2df;
@@ -1180,7 +1180,13 @@ a:hover > .arrow {
     margin-top: 25px;
   }
   .project-list {
+    grid-template-columns: minmax(0, 1fr);
     gap: 55px;
+  }
+  .project-entry,
+  .project-safaga,
+  .project-career {
+    grid-column: 1 / -1;
   }
   .project-career {
     max-width: none;

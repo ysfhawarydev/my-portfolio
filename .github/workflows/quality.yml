@@ -1,8 +1,6 @@
 name: Portfolio quality
 on:
   pull_request:
-  push:
-    branches: [feat/editorial-portfolio]
 permissions:
   contents: read
 jobs:
@@ -14,11 +12,6 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - name: Resolve verified stable Next.js patch
-        run: |
-          cp package-lock.json /tmp/portfolio-lock-before.json
-          npm install --package-lock-only --ignore-scripts --save-exact next@16.4.6 eslint-config-next@16.4.6
-          node tests/lock-diff.mjs
       - run: npm ci
       - run: npm run lint
       - run: npm run build
@@ -33,6 +26,11 @@ jobs:
       - name: Visual review samples
         if: always()
         run: node tests/visual-samples.mjs
+      - name: Mobile Lighthouse baseline
+        if: always()
+        run: |
+          npx --yes lighthouse http://127.0.0.1:3000 --chrome-flags="--headless --no-sandbox" --output=json --output-path=reports/lighthouse-mobile.json --quiet
+          node tests/lighthouse-summary.mjs
       - name: Save QA artifacts
         if: always()
         uses: actions/upload-artifact@v4

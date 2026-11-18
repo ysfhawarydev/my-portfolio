@@ -41,6 +41,7 @@ export function ProjectVisual({ project }: { project: Project }) {
         </div>
         <div
           className="career-track"
+          role="group"
           aria-label="Implemented application workflow"
         >
           <span>Discover</span>
@@ -70,6 +71,7 @@ export function ProjectVisual({ project }: { project: Project }) {
         </div>
         <div
           className="lms-diagram"
+          role="group"
           aria-label="Implemented system architecture"
         >
           <div className="diagram-roles">

@@ -10,6 +10,7 @@ const axe = await readFile(
   'utf8',
 );
 const results = [];
+const failures = [];
 await mkdir('reports', { recursive: true });
 try {
   for (const width of [360, 390, 768, 1440]) {
@@ -38,13 +39,21 @@ try {
         path: `reports/${route.replaceAll('/', '_')}-${width}.png`,
         fullPage: true,
       });
-      assert.equal(
-        await page.evaluate(
-          () => document.documentElement.scrollWidth <= innerWidth,
-        ),
-        true,
-        `${width} ${route} overflow`,
+      const overflow = await page.evaluate(() =>
+        Array.from(document.querySelectorAll('body *'))
+          .filter((el) => {
+            const r = el.getBoundingClientRect();
+            return r.width > 0 && r.right > innerWidth + 1;
+          })
+          .map((el) => ({ tag: el.tagName, className: el.className }))
+          .slice(0, 10),
       );
+      if (
+        await page.evaluate(
+          () => document.documentElement.scrollWidth > innerWidth,
+        )
+      )
+        failures.push({ width, route, overflow });
       await page.addScriptTag({ content: axe });
       const audit = await page.evaluate(() =>
         window.axe.run(document, {
@@ -54,7 +63,18 @@ try {
           },
         }),
       );
-      assert.deepEqual(audit.violations, [], `${width} ${route} accessibility`);
+      if (audit.violations.length)
+        failures.push({
+          width,
+          route,
+          violations: audit.violations.map((v) => ({
+            id: v.id,
+            nodes: v.nodes.map((n) => ({
+              target: n.target,
+              summary: n.failureSummary,
+            })),
+          })),
+        });
       if (route === '/') {
         await page.screenshot({
           path: `reports/home-${width}.png`,
@@ -93,6 +113,8 @@ try {
     'reports/browser-results.json',
     JSON.stringify(results, null, 2),
   );
+  console.log('BROWSER_RESULTS=' + JSON.stringify({ results, failures }));
+  assert.deepEqual(failures, [], 'Responsive and accessibility checks');
 } finally {
   await browser.close();
 }
