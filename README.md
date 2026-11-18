@@ -6,6 +6,10 @@ A frontend-only, statically exported Next.js portfolio. Three evidence-backed ca
 
 Use Node.js 24 and npm. Run `npm ci`, then `npm run dev`. No environment variables, database, API keys, authentication, analytics, or runtime services are required.
 
+After `npm run build`, `npm start` serves the exported files locally for review. This helper is a QA server; production deploys the static `out/` directory.
+
+See [the design system and actual screenshots](docs/DESIGN.md) and [the release checklist](docs/STATUS.md).
+
 ## Quality checks
 
 - `npm run lint`

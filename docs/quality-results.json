@@ -1,0 +1,596 @@
+{
+  "sourceCommit": "de0e17a23a546fb0a2226d8ed258c14343d1dbff",
+  "workflow": "https://github.com/ysfhawarydev/my-portfolio/actions/runs/44286327415",
+  "browser": {
+    "results": [
+      {
+        "width": 360,
+        "route": "/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 360,
+        "route": "/work/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 360,
+        "route": "/about/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 360,
+        "route": "/expertise/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 360,
+        "route": "/contact/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 360,
+        "route": "/resume/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 360,
+        "route": "/work/student-management-system/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 360,
+        "route": "/work/safaga-geoatlas/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 360,
+        "route": "/work/careerbridge/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/work/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/about/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/expertise/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/contact/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/resume/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/work/student-management-system/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/work/safaga-geoatlas/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 390,
+        "route": "/work/careerbridge/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/work/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/about/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/expertise/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/contact/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/resume/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/work/student-management-system/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/work/safaga-geoatlas/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 768,
+        "route": "/work/careerbridge/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/work/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/about/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/expertise/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/contact/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/resume/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/work/student-management-system/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/work/safaga-geoatlas/",
+        "status": 200,
+        "violations": 0
+      },
+      {
+        "width": 1440,
+        "route": "/work/careerbridge/",
+        "status": 200,
+        "violations": 0
+      }
+    ],
+    "failures": []
+  },
+  "lighthouse": [
+    {
+      "version": "13.6.0",
+      "time": "2026-11-18T10:34:18.149Z",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3176.5,
+        "credits": {
+          "axe-core": "4.14.0",
+          "ard": "0.91 (f073b1e)"
+        }
+      },
+      "settings": {
+        "output": ["json"],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": null,
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "agentic-browsing": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 752.7727,
+        "largest-contentful-paint": 752.7727,
+        "total-blocking-time": 68,
+        "cumulative-layout-shift": 0.004962293701916267,
+        "speed-index": 752.7727
+      },
+      "findings": [
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.99,
+          "displayValue": "70 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.91,
+          "displayValue": "130 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.96,
+          "displayValue": "3.0 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 60 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 19 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 12 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 120 ms"
+        }
+      ]
+    },
+    {
+      "version": "13.6.0",
+      "time": "2026-11-18T10:34:29.084Z",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3542.5,
+        "credits": {
+          "axe-core": "4.14.0",
+          "ard": "0.91 (f073b1e)"
+        }
+      },
+      "settings": {
+        "output": ["json"],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": null,
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "agentic-browsing": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 754.4607000000001,
+        "largest-contentful-paint": 754.4607000000001,
+        "total-blocking-time": 28.5,
+        "cumulative-layout-shift": 0.004962293701916267,
+        "speed-index": 754.4607000000001
+      },
+      "findings": [
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.95,
+          "displayValue": "110 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.96,
+          "displayValue": "2.9 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 60 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 19 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 12 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 90 ms"
+        }
+      ]
+    },
+    {
+      "version": "13.6.0",
+      "time": "2026-11-18T10:34:39.762Z",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3380.5,
+        "credits": {
+          "axe-core": "4.14.0",
+          "ard": "0.91 (f073b1e)"
+        }
+      },
+      "settings": {
+        "output": ["json"],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": null,
+        "skipAudits": null
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "agentic-browsing": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 759.7348,
+        "largest-contentful-paint": 759.7348,
+        "total-blocking-time": 23.5,
+        "cumulative-layout-shift": 0.004962293701916267,
+        "speed-index": 759.7348
+      },
+      "findings": [
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.97,
+          "displayValue": "100 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.97,
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 60 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 19 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 12 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 150 ms"
+        }
+      ]
+    }
+  ]
+}
