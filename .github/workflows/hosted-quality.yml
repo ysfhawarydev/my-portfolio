@@ -1,0 +1,68 @@
+name: Hosted portfolio quality
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hosted:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - environment: preview
+            url: https://youssef-elhawary.pages.dev
+          - environment: production
+            url: https://ysfhawary.dev
+    env:
+      TEST_BASE_URL: ${{ matrix.url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check which release is live
+        id: release
+        run: |
+          if curl -fsS --max-time 20 "$TEST_BASE_URL/work/careerbridge/" | grep 'https://ysfhawary.dev/work/careerbridge/' >/dev/null; then
+            echo 'active=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'The expected release did not respond.' >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+      - name: Check primary domain redirects
+        if: matrix.environment == 'production'
+        run: |
+          for url in 'http://ysfhawary.dev/work/' 'https://www.ysfhawary.dev/work/?source=redirect-test' 'http://www.ysfhawary.dev/work/'; do
+            result=$(curl -fsSL --retry 2 --retry-all-errors --max-time 15 --max-redirs 4 -o /dev/null -w '%{url_effective} %{http_code} %{num_redirects}' "$url")
+            printf '%s → %s\n' "$url" "$result"
+            case "$result" in
+              'https://ysfhawary.dev/work/ 200 '[1-4]|'https://ysfhawary.dev/work/?source=redirect-test 200 '[1-4]) ;;
+              *) exit 1 ;;
+            esac
+          done
+      - uses: actions/setup-node@v4
+        if: steps.release.outputs.active == 'true' && !cancelled()
+        with:
+          node-version: 24
+          cache: npm
+      - if: steps.release.outputs.active == 'true' && !cancelled()
+        run: npm ci
+      - if: steps.release.outputs.active == 'true' && !cancelled()
+        run: npx playwright install --with-deps chromium
+      - if: steps.release.outputs.active == 'true' && !cancelled()
+        run: npm run test:e2e
+      - name: Mobile Lighthouse
+        if: steps.release.outputs.active == 'true' && !cancelled()
+        run: |
+          mkdir -p reports
+          for attempt in 1 2 3; do
+            report="reports/lighthouse-mobile-$attempt.json"
+            npx --yes lighthouse@13.6.0 "$TEST_BASE_URL" --chrome-flags="--headless --no-sandbox" --output=json --output-path="$report" --quiet
+            node tests/lighthouse-summary.mjs "$report"
+          done
+      - uses: actions/upload-artifact@v4
+        if: steps.release.outputs.active == 'true' && !cancelled()
+        with:
+          name: hosted-quality-${{ matrix.environment }}
+          path: reports/
+          retention-days: 7

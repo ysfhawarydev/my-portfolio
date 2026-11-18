@@ -1,0 +1,44 @@
+name: Portfolio quality
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run format:check
+      - run: npx playwright install --with-deps chromium
+      - name: Browser and accessibility checks
+        run: |
+          node tests/serve.mjs > /tmp/portfolio-server.log 2>&1 &
+          TEST_BASE_URL=http://127.0.0.1:3000 npm run test:e2e
+      - name: Visual review samples
+        if: always()
+        run: node tests/visual-samples.mjs
+      - name: Mobile Lighthouse baseline
+        if: always()
+        run: |
+          for attempt in 1 2 3; do
+            npx --yes lighthouse@13.6.0 http://127.0.0.1:3000 --chrome-flags="--headless --no-sandbox" --output=json --output-path="reports/lighthouse-mobile-$attempt.json" --quiet
+            node tests/lighthouse-summary.mjs "reports/lighthouse-mobile-$attempt.json"
+          done
+      - name: Save QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-quality
+          path: |
+            reports/
+            package-lock.json
+          retention-days: 7

@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Youssef Elhawary — editorial portfolio
 
-## Getting Started
+A frontend-only, statically exported Next.js portfolio. Three evidence-backed case studies explain the Student Management System, Safaga GeoAtlas, and CareerBridge.
 
-First, run the development server:
+## Development
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Use Node.js 24 and npm. Run `npm ci`, then `npm run dev`. No environment variables, database, API keys, authentication, analytics, or runtime services are required.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+After `npm run build`, `npm start` serves the exported files locally for review. This helper is a QA server; production deploys the static `out/` directory.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+See [the design system and actual screenshots](docs/DESIGN.md) and [the release checklist](docs/STATUS.md).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Quality checks
 
-## Learn More
+- `npm run lint`
+- `npm run typecheck`
+- `npm test`
+- `npm run build`
+- `npm run format:check`
+- Install Chromium with `npx playwright install chromium`, serve `out/` with a static server, then run `TEST_BASE_URL=http://localhost:3000 npm run test:e2e`.
 
-To learn more about Next.js, take a look at the following resources:
+Browser checks cover nine routes at four widths, axe WCAG checks, mobile navigation, missing routes, PDF access, and content with JavaScript disabled. They require a browser-capable environment. Test files are not proof that checks have run; see `docs/STATUS.md`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`src/content` holds typed, reviewed professional content. App Router pages render as static HTML. Only navigation and a short decorative line animation use client components. Plain CSS design tokens and Tailwind v4 provide the visual foundation. The Motion package is used for one finite animation; CSS handles hover feedback. Reduced-motion preferences disable it. The mobile menu also works as native HTML without JavaScript.
 
-## Deploy on Vercel
+Fonts are self-hosted via next/font/local, with OFL licenses in public/fonts. The Safaga image is a real browser capture; other project visuals are explicitly labeled implementation diagrams. No invented application screenshots or project statistics are used.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Static export avoids a server and makes deployment portable. Image derivatives are prepared locally; there is no runtime image optimizer. Redirects and headers belong to the host. Next.js uses the TypeScript compiler API because CLI subprocess output is unavailable in the build workspace; strict type checking remains enabled.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Production runs on Cloudflare Pages. The Git-connected build uses Node.js 24, `npm run build`, and the `out` directory. See [Cloudflare release instructions](docs/CLOUDFLARE.md) for the domain setup, rollout and rollback checks.
+
+The original site is preserved on `archive/pre-editorial-2026-11-17`. Hosted browser and mobile Lighthouse checks run in GitHub Actions against the Pages preview and the canonical domain.
+
+Canonical domain: https://ysfhawary.dev. Preserve unrelated DNS records, including Notes and verification records.
