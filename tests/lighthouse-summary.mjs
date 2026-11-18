@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 const report = JSON.parse(
-  readFileSync('reports/lighthouse-mobile.json', 'utf8'),
+  readFileSync(process.argv[2] || 'reports/lighthouse-mobile.json', 'utf8'),
 );
 console.log(
   'LIGHTHOUSE=' +

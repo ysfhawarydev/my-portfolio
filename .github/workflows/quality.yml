@@ -29,8 +29,10 @@ jobs:
       - name: Mobile Lighthouse baseline
         if: always()
         run: |
-          npx --yes lighthouse http://127.0.0.1:3000 --chrome-flags="--headless --no-sandbox" --output=json --output-path=reports/lighthouse-mobile.json --quiet
-          node tests/lighthouse-summary.mjs
+          for attempt in 1 2 3; do
+            npx --yes lighthouse@13.6.0 http://127.0.0.1:3000 --chrome-flags="--headless --no-sandbox" --output=json --output-path="reports/lighthouse-mobile-$attempt.json" --quiet
+            node tests/lighthouse-summary.mjs "reports/lighthouse-mobile-$attempt.json"
+          done
       - name: Save QA artifacts
         if: always()
         uses: actions/upload-artifact@v4

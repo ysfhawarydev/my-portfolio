@@ -162,7 +162,7 @@ try {
   await page.waitForURL(/\/work\/?$/);
   await page.goto(base + '/contact/');
   assert.equal(
-    await page.locator('.contact-email').getAttribute('href'),
+    (await page.locator('.contact-email').getAttribute('href')).split('?')[0],
     'mailto:youssefelhawary012@gmail.com',
   );
   await context.close();

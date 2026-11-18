@@ -1425,7 +1425,7 @@ a:hover > .arrow {
     display: none;
   }
   .contact-email {
-    font-size: 22px;
+    font-size: clamp(16px, 4.7vw, 22px);
   }
   .resume-page .text-link {
     margin-bottom: 20px;
