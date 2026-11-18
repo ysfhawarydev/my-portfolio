@@ -33,7 +33,7 @@ jobs:
         if: matrix.environment == 'production'
         run: |
           for url in 'http://ysfhawary.dev/work/' 'https://www.ysfhawary.dev/work/?source=redirect-test' 'http://www.ysfhawary.dev/work/'; do
-            result=$(curl -fsSL --max-time 25 --max-redirs 4 -o /dev/null -w '%{url_effective} %{http_code} %{num_redirects}' "$url")
+            result=$(curl -fsSL --retry 2 --retry-all-errors --max-time 15 --max-redirs 4 -o /dev/null -w '%{url_effective} %{http_code} %{num_redirects}' "$url")
             printf '%s → %s\n' "$url" "$result"
             case "$result" in
               'https://ysfhawary.dev/work/ 200 '[1-4]|'https://ysfhawary.dev/work/?source=redirect-test 200 '[1-4]) ;;
@@ -41,22 +41,25 @@ jobs:
             esac
           done
       - uses: actions/setup-node@v4
-        if: steps.release.outputs.active == 'true'
+        if: steps.release.outputs.active == 'true' && !cancelled()
         with:
           node-version: 24
           cache: npm
-      - if: steps.release.outputs.active == 'true'
+      - if: steps.release.outputs.active == 'true' && !cancelled()
         run: npm ci
-      - if: steps.release.outputs.active == 'true'
+      - if: steps.release.outputs.active == 'true' && !cancelled()
         run: npx playwright install --with-deps chromium
-      - if: steps.release.outputs.active == 'true'
+      - if: steps.release.outputs.active == 'true' && !cancelled()
         run: npm run test:e2e
       - name: Mobile Lighthouse
         if: steps.release.outputs.active == 'true' && !cancelled()
         run: |
           mkdir -p reports
-          npx --yes lighthouse@13.6.0 "$TEST_BASE_URL" --chrome-flags="--headless --no-sandbox" --output=json --output-path=reports/lighthouse-mobile.json --quiet
-          node tests/lighthouse-summary.mjs reports/lighthouse-mobile.json
+          for attempt in 1 2 3; do
+            report="reports/lighthouse-mobile-$attempt.json"
+            npx --yes lighthouse@13.6.0 "$TEST_BASE_URL" --chrome-flags="--headless --no-sandbox" --output=json --output-path="$report" --quiet
+            node tests/lighthouse-summary.mjs "$report"
+          done
       - uses: actions/upload-artifact@v4
         if: steps.release.outputs.active == 'true' && !cancelled()
         with:

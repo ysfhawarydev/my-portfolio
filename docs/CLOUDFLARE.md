@@ -1,36 +1,32 @@
-# Cloudflare Pages release
+# Cloudflare Pages deployment
 
-The owner authorized Cloudflare Pages free-tier hosting on 18 November 2026. No paid plan or add-on is authorized. Cloudflare sign-in is still required; no deployment or DNS migration has occurred.
+The portfolio launched on Cloudflare Pages on 18 November 2026. The free Pages project is `youssef-elhawary`. [Production](https://ysfhawary.dev/) · [Pages preview](https://youssef-elhawary.pages.dev/)
 
 ## Build configuration
 
 - Repository: `ysfhawarydev/my-portfolio`
-- Release candidate branch: `feat/editorial-portfolio`
+- Release branch at cutover: `feat/editorial-portfolio`
 - Root directory: repository root
 - Build command: `npm run build`
 - Output directory: `out`
 - Build environment: `NODE_VERSION=24`
 - Runtime environment variables: none
-- Functions, Workers, databases and analytics: none
+- Vercel Git deployment: disabled in `vercel.json`
 
-Create and verify a Pages deployment before attaching the custom domain. The branch can serve as the initial Pages production branch while the old source remains preserved on main. After successful launch, merge the reviewed PR and change the Pages production branch to main. Vercel Git deployment remains disabled in the replacement configuration.
+`public/_headers` sets security headers and immutable caching for hashed Next.js assets. `public/_redirects` preserves the old `/projects` route.
 
-`public/_headers` supplies security headers and immutable caching for hashed Next.js assets. `public/_redirects` preserves the old `/projects` route and redirects www to the canonical apex. Both hostnames must be attached and have valid certificates before the www redirect can work. Cloudflare applies these host configuration files; the local QA server does not emulate them.
+## Domain configuration
 
-## Migration and verification
+- The Pages custom domains are `ysfhawary.dev` and `www.ysfhawary.dev`. Both use proxied CNAME records to the Pages project.
+- The **Portfolio www to canonical domain** Single Redirect matches the exact www hostname, returns 301, and preserves the path and query. It excludes the ACME challenge path.
+- The **Portfolio static HTML settings** configuration rule applies to the apex. It disables injected analytics and email obfuscation so readers can use the contact link with JavaScript disabled.
+- Search Console owns a dedicated DNS verification TXT. The sitemap was accepted and Google discovered nine pages.
+- The original DNS zone export was downloaded before the migration. The original source remains on `archive/pre-editorial-2026-11-17`. The existing Vercel deployment can still serve as a recovery option while retained.
 
-1. Sign in to Cloudflare and review existing Pages projects before creating one. Use the existing GitHub connection if available. If a new repository authorization is required, restrict it to this portfolio repository.
-2. Deploy the release branch to its assigned Pages URL. Record the actual project name and URL; do not invent a DNS target.
-3. Test all nine routes, the custom 404, PDF, navigation, assets, headers and redirects against that deployment. Run mobile Lighthouse against the public preview.
-4. Export the complete authoritative Cloudflare zone before changing DNS. Preserve all non-portfolio records, including notes, MX, SPF, DKIM, DMARC and verification TXT records. Keep the zone backup private.
-5. Add `ysfhawary.dev` and `www.ysfhawary.dev` through the Pages custom-domain flow, using the exact targets it supplies. Replace only conflicting portfolio records after reviewing their existing values.
-6. Verify root HTTPS, www-to-root and HTTP-to-HTTPS redirects, canonical tags, sitemap, robots and production Lighthouse. Check unrelated subdomains against their pre-migration behavior; the existing Notes data-loading issue is not proof of a DNS failure.
-7. Complete profile-reference updates and Search Console submission only after production is verified.
+## Verification
 
-## Sources
+The hosted GitHub Actions workflow checks both hosts for all nine routes, the custom 404, the resume PDF, navigation, assets and accessibility. The production job also checks HTTP and www redirects and path preservation. Mobile Lighthouse reports are attached to each run.
 
-- https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/
-- https://developers.cloudflare.com/pages/configuration/headers/
-- https://developers.cloudflare.com/pages/configuration/redirects/
+To roll back a release, select the prior successful deployment in Pages. To revert hosting, use the DNS export to restore only the previous portfolio records and review any portfolio-specific redirects. Keep unrelated subdomains and verification records intact.
 
-No preview URL, domain migration, production performance or successful HTTPS verification is claimed until those steps are completed.
+[Cloudflare Pages custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/) · [Cloudflare Pages redirects](https://developers.cloudflare.com/pages/configuration/redirects/)

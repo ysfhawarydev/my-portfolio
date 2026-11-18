@@ -31,8 +31,8 @@ Static export avoids a server and makes deployment portable. Image derivatives a
 
 ## Deployment
 
-Build command: `npm run build`. Output directory: `out`. All substantive pages are prerendered. Vercel configuration is included, but the existing account's Hobby plan is a blocker for this commercial-services portfolio. Do not promote or purchase an upgrade without resolving hosting eligibility. The owner has authorized Cloudflare Pages free-tier hosting. Host configuration is in public/_headers and public/_redirects; see [Cloudflare release instructions](docs/CLOUDFLARE.md). Authentication and production verification remain pending.
+Production runs on Cloudflare Pages. The Git-connected build uses Node.js 24, `npm run build`, and the `out` directory. See [Cloudflare release instructions](docs/CLOUDFLARE.md) for the domain setup, rollout and rollback checks.
 
-The original site is preserved on `archive/pre-editorial-2026-11-17`. Work is on `feat/editorial-portfolio`. Keep main and existing production deployment unchanged until browser QA, performance checks, and hosting eligibility are resolved.
+The original site is preserved on `archive/pre-editorial-2026-11-17`. Hosted browser and mobile Lighthouse checks run in GitHub Actions against the Pages preview and the canonical domain.
 
-Canonical domain: https://ysfhawary.dev. Preserve all unrelated DNS records, especially notes, email records, and verification TXT records. Root DNS currently routes to Vercel and was verified through the connected project; do not change it from generic instructions.
+Canonical domain: https://ysfhawary.dev. Preserve unrelated DNS records, including Notes and verification records.

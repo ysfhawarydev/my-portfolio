@@ -28,6 +28,8 @@ These are three consecutive measurements of the same release build, not producti
 
 Non-blocking Lighthouse opportunities remain around framework JavaScript, legacy compatibility code, dependency chains and below-the-fold image sizing. No perfect field-performance guarantee is made.
 
-## Production scope
+## Hosted checks
 
-The replacement has not been deployed. No new-domain HTTPS, www redirect, production HTTP status, production Lighthouse or Search Console verification is claimed. The existing homepage remains reachable over HTTPS. The Notes HTTPS shell is reachable but its data remained in a loading state, so end-to-end Notes functionality was not verified. DNS was not changed.
+The deployed preview passed Playwright and axe across all 36 route and viewport combinations. The first hosted mobile Lighthouse run scored 99 performance, 100 accessibility, 100 best practices, and 100 SEO. LCP was 0.933 s, TBT was 118 ms, and CLS was 0.005. See [the initial Pages verification](https://github.com/ysfhawarydev/my-portfolio/actions/runs/44390728488).
+
+For production and subsequent preview measurements, see [the hosted quality workflow](https://github.com/ysfhawarydev/my-portfolio/actions/workflows/hosted-quality.yml). Scores vary between GitHub-hosted runners, mainly in JavaScript blocking time. Production results are lab measurements. Field LCP, INP and CLS require real-user traffic data.
