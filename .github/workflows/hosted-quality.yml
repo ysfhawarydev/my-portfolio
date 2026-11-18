@@ -25,11 +25,21 @@ jobs:
         run: |
           if curl -fsS --max-time 20 "$TEST_BASE_URL/work/careerbridge/" | grep 'https://ysfhawary.dev/work/careerbridge/' >/dev/null; then
             echo 'active=true' >> "$GITHUB_OUTPUT"
-          elif [ '${{ matrix.environment }}' = preview ]; then
-            exit 1
           else
-            echo 'Production cutover is pending.' >> "$GITHUB_STEP_SUMMARY"
+            echo 'The expected release did not respond.' >> "$GITHUB_STEP_SUMMARY"
+            exit 1
           fi
+      - name: Check primary domain redirects
+        if: matrix.environment == 'production'
+        run: |
+          for url in 'http://ysfhawary.dev/work/' 'https://www.ysfhawary.dev/work/' 'http://www.ysfhawary.dev/work/'; do
+            result=$(curl -fsSL --max-time 25 --max-redirs 4 -o /dev/null -w '%{url_effective} %{http_code} %{num_redirects}' "$url")
+            printf '%s → %s\n' "$url" "$result"
+            case "$result" in
+              'https://ysfhawary.dev/work/ 200 '[1-4]) ;;
+              *) exit 1 ;;
+            esac
+          done
       - uses: actions/setup-node@v4
         if: steps.release.outputs.active == 'true'
         with:
